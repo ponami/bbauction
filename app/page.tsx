@@ -331,7 +331,7 @@ export default function BibiAuction() {
                 <div>
                   <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 4 }}>
                     <span style={{ background: kindColor(selected.kind ?? "").bg, color: kindColor(selected.kind ?? "").text, padding: "3px 10px", borderRadius: 8, fontSize: 11, fontWeight: 700 }}>{selected.kind}</span>
-                    {detail?.beginner_grade && <span style={{ fontSize: 14 }}>{detail.beginner_grade.emoji} {detail.beginner_grade.label}</span>}
+                    {detail?.beginner_grade && <span style={{ fontSize: 14 }}>{detail?.beginner_grade.emoji} {detail?.beginner_grade.label}</span>}
                   </div>
                   <h2 style={{ fontSize: 20, fontWeight: 800, margin: "4px 0" }}>{selected.bld_nm || selected.kind}</h2>
                   <p style={{ fontSize: 13, color: "#64748B", margin: 0 }}>{selected.address}</p>
@@ -376,10 +376,10 @@ export default function BibiAuction() {
 
               {/* Beginner Grade */}
               {detail?.beginner_grade && (
-                <div style={{ background: detail.beginner_grade.level === "위험" ? "#FEF2F2" : "#F0FDF4", borderRadius: 10, padding: 14, marginBottom: 16, border: `1px solid ${detail.beginner_grade.level === "위험" ? "#FECACA" : "#BBF7D0"}` }}>
-                  <div style={{ fontSize: 14, fontWeight: 700 }}>{detail.beginner_grade.emoji} {detail.beginner_grade.label}</div>
-                  {detail.beginner_grade.reasons?.map((r: string, i: number) => <div key={i} style={{ fontSize: 12, color: "#64748B", marginTop: 4 }}>• {r}</div>)}
-                  {detail.beginner_grade.caution && <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 8, padding: "8px", background: "rgba(0,0,0,0.03)", borderRadius: 6 }}>{detail.beginner_grade.caution}</div>}
+                <div style={{ background: detail?.beginner_grade.level === "위험" ? "#FEF2F2" : "#F0FDF4", borderRadius: 10, padding: 14, marginBottom: 16, border: `1px solid ${detail?.beginner_grade.level === "위험" ? "#FECACA" : "#BBF7D0"}` }}>
+                  <div style={{ fontSize: 14, fontWeight: 700 }}>{detail?.beginner_grade.emoji} {detail?.beginner_grade.label}</div>
+                  {detail?.beginner_grade.reasons?.map((r: string, i: number) => <div key={i} style={{ fontSize: 12, color: "#64748B", marginTop: 4 }}>• {r}</div>)}
+                  {detail?.beginner_grade.caution && <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 8, padding: "8px", background: "rgba(0,0,0,0.03)", borderRadius: 6 }}>{detail?.beginner_grade.caution}</div>}
                 </div>
               )}
 
@@ -387,7 +387,7 @@ export default function BibiAuction() {
               {detail?.required_checks?.length > 0 && (
                 <div style={{ marginBottom: 16 }}>
                   <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8 }}>⚠️ 필수 확인사항</h3>
-                  {detail.required_checks.map((c: any, i: number) => (
+                  {detail?.required_checks.map((c: any, i: number) => (
                     <div key={i} style={{ padding: "10px 12px", background: "#FFFBEB", borderRadius: 8, marginBottom: 6, border: "1px solid #FDE68A" }}>
                       <div style={{ fontSize: 13, fontWeight: 600 }}>{c.label}</div>
                       <div style={{ fontSize: 12, color: "#64748B", marginTop: 2 }}>{c.desc}</div>
@@ -400,7 +400,7 @@ export default function BibiAuction() {
               {detail?.journey_guide?.length > 0 && (
                 <div style={{ marginBottom: 16 }}>
                   <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8 }}>📋 진행 단계</h3>
-                  {detail.journey_guide.map((s: any, i: number) => (
+                  {detail?.journey_guide.map((s: any, i: number) => (
                     <div key={i} style={{ display: "flex", gap: 10, marginBottom: 8 }}>
                       <span style={{ fontSize: 18 }}>{s.icon}</span>
                       <div>
@@ -416,7 +416,7 @@ export default function BibiAuction() {
               {detail?.timeline?.length > 0 && (
                 <div style={{ marginBottom: 16 }}>
                   <h3 style={{ fontSize: 14, fontWeight: 700, marginBottom: 8 }}>📅 타임라인</h3>
-                  {detail.timeline.map((t: any, i: number) => (
+                  {detail?.timeline.map((t: any, i: number) => (
                     <div key={i} style={{ padding: "8px 12px", background: "#F8FAFC", borderRadius: 8, marginBottom: 4 }}>
                       <div style={{ fontSize: 13, fontWeight: 600, color: "#1E40AF" }}>{t.when}</div>
                       <div style={{ fontSize: 12, color: "#64748B" }}>{t.tasks?.join(" · ")}</div>

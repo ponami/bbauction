@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx @cloudflare/next-on-pages",
-    "deploy": "npx wrangler pages deploy .vercel/output/static --compatibility-flag=nodejs_compat"
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "next": "^15.1.0",
@@ -13,10 +13,8 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
-    "typescript": "^5.7.0",
-    "wrangler": "^3.99.0"
+    "typescript": "^5.7.0"
   }
 }

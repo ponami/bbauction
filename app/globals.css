@@ -1,0 +1,137 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Brand ── */
+  --brand:       #16A34A;
+  --brand-dark:  #15803D;
+  --brand-light: #DCFCE7;
+  --brand-bg:    #F0FDF4;
+
+  /* ── Surface ── */
+  --bg:          #F4F6F9;
+  --surface:     #FFFFFF;
+  --surface-2:   #F9FAFB;
+  --border:      #E5E7EB;
+  --border-2:    #D1D5DB;
+
+  /* ── Text ── */
+  --text:        #111827;
+  --text-2:      #374151;
+  --text-3:      #6B7280;
+  --text-4:      #9CA3AF;
+
+  /* ── Status ── */
+  --rise:        #DC2626;   /* 상승 (빨강 — 한국 관행) */
+  --fall:        #2563EB;   /* 하락 (파랑 — 한국 관행) */
+  --gold:        #D97706;
+  --gold-bg:     #FFFBEB;
+
+  /* ── Risk / Safety 신호등 시스템 ── */
+  --risk-high:      #F97316;          /* 위험 주황 */
+  --risk-hot:       #EF4444;          /* 위험 빨강 */
+  --risk-mild:      #F59E0B;          /* 주의 앰버 */
+  --risk-grad:      linear-gradient(135deg, #F97316 0%, #EF4444 100%);
+  --risk-glow:      rgba(249,115,22,0.28);
+  --safe-strong:    #10B981;          /* 안전 에메랄드 */
+  --safe-blue:      #3B82F6;          /* 안전 블루 */
+  --safe-grad:      linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+  --safe-glow:      rgba(16,185,129,0.22);
+  --cta-grad:       linear-gradient(135deg, #F97316 0%, #10B981 100%);
+
+  /* ── Risk surface colors ── */
+  --risk-bg:        #FFF7F0;          /* 위험 배경 (라이트) */
+  --risk-border:    #FDE8D0;
+  --safe-bg:        #F0FDF4;          /* 안전 배경 (라이트) */
+  --safe-border:    #DCFCE7;
+
+  /* ── Shadow ── */
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.07);
+  --shadow:      0 4px 12px rgba(0,0,0,0.09);
+  --shadow-lg:   0 8px 28px rgba(0,0,0,0.11);
+
+  /* ── Radius ── */
+  --r-sm:   6px;
+  --r:      12px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-full: 9999px;
+
+  /* ── Layout ── */
+  --px:     20px;    /* 모바일 기본 수평 패딩 */
+  --max-w:  1280px;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, select, textarea { font-family: inherit; }
+input[type="range"] { cursor: pointer; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+
+/* ── Utility ── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--px);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+@keyframes risk-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.35); }
+  50%       { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+}
+@keyframes orulzi-shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+.fade-up { animation: fadeUp .35s ease both; }
+.fade-in { animation: fadeIn .25s ease both; }
+
+/* ── Spinner (global for map loading indicators) ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.spin {
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+  /* robustness */
+  will-change: transform;
+}

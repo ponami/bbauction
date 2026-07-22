@@ -1,16 +1,35 @@
 import type { Metadata } from "next"
+import AuthProvider from "@/components/AuthProvider"
+import BottomNav from "@/components/BottomNav"
+import LegalFooter from "@/components/LegalFooter"
+import "./globals.css"
+import { PRODUCT_NAME, PRODUCT_TAGLINE, PRODUCT_DESCRIPTION_SHORT } from "@/lib/constants"
 
 export const metadata: Metadata = {
-  title: "비비옥션 | 크게 싸게, 안전하게",
-  description: "비비옥션 - 전국 법원경매를 AI로 분석합니다. 단타매매·임대목적 필터, 투자점수, 리스크 분석.",
-  icons: { icon: "/logo.png" },
+  title: `${PRODUCT_NAME} | ${PRODUCT_TAGLINE}`,
+  description: `${PRODUCT_NAME} - 국토부 실거래 데이터와 AI로 아파트 리스크를 분석합니다. ${PRODUCT_DESCRIPTION_SHORT}.`,
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
-      <body style={{ margin: 0, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
-        {children}
+      <body>
+        <AuthProvider>
+          {children}
+          <LegalFooter />
+          <BottomNav />
+        </AuthProvider>
       </body>
     </html>
   )

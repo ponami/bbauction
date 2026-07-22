@@ -1,20 +1,42 @@
 {
-  "name": "bbauction",
-  "version": "1.0.0",
+  "name": "oreulji-ai",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "next": "^15.1.0",
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@portone/server-sdk": "^0.19.0",
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.100.1",
+    "@types/web-push": "^3.6.4",
+    "axios": "^1.7.0",
+    "bcrypt": "^6.0.0",
+    "date-fns": "^3.6.0",
+    "googleapis": "^173.0.0",
+    "html2canvas": "^1.4.1",
+    "next": "15.1.0",
+    "node-cron": "^3.0.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "web-push": "^3.6.7",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@types/react": "^19.0.0",
-    "typescript": "^5.7.0"
+    "@prisma/client": "^6.19.2",
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^20",
+    "@types/node-cron": "^3.0.11",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/xml2js": "^0.4.14",
+    "eslint": "^8",
+    "eslint-config-next": "15.1.0",
+    "prisma": "^6.19.2",
+    "typescript": "^5"
   }
 }
